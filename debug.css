@@ -2,6 +2,11 @@
     $DEBUG
 \*------------------------------------*/
 
+:root {
+  --color-warning: yellow;
+  --color-error: red;
+}
+
 /* 
     Включите эту таблицу стилей для визуального обнаружения любого неправильно вложенного или
     потенциально недопустимую разметку или любой потенциально недоступный код.
@@ -18,7 +23,7 @@
   Есть ли на вашей странице какие-либо пустые элементы?
 */
 :empty {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 
 /*
@@ -26,13 +31,13 @@
  но их следует перепроверить, отсутствие `alt' - это плохо и помечено красным.
 */
 img {
-  outline: 5px solid red;
+  outline: 5px solid var(--color-error);
 }
 img[alt] {
   outline: none;
 }
 img[alt=""] {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 
 /*
@@ -40,7 +45,7 @@ img[alt=""] {
     Ссылки без них никогда не являются недействительными, но это хорошая идея проверить.
 */
 a {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 a[title] {
   outline: none;
@@ -51,14 +56,14 @@ a[title] {
 */
 a[href="#"],
 a[href*="javascript"] {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 
 /*
     Атрибут `target` не слишком хорош...
 */
 a[target] {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 
 /*
@@ -66,14 +71,14 @@ a[target] {
 */
 ul > *:not(li),
 ol > *:not(li) {
-  outline: 5px solid red;
+  outline: 5px solid var(--color-error);
 }
 
 /*
     Всегда приятно присваивать "th" атрибутам "scope". 
 */
 th {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 th[scope] {
   outline: none;
@@ -83,21 +88,21 @@ th[scope] {
     `tr" как дети "table" не очень хороши, вам нужен был "thead" / "tbody"?
 */
 table > tr {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 
 /*
     `tfoot` должен быть *перед* `tbody`.
 */
 tbody + tfoot {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 
 /*
     Формы требуют атрибутов `действия`
 */
 form {
-  outline: 5px solid red;
+  outline: 5px solid var(--color-error);
 }
 form[action] {
   outline: none;
@@ -111,7 +116,7 @@ form[action] {
 */
 textarea,
 input {
-  outline: 5px solid red;
+  outline: 5px solid var(--color-error);
 }
 input[type] {
   outline: none;
@@ -120,7 +125,7 @@ textarea[rows][cols] {
   outline: none;
 }
 input[type="submit"] {
-  outline: 5px solid red;
+  outline: 5px solid var(--color-error);
 }
 input[type="submit"][value] {
   outline: none;
@@ -130,21 +135,21 @@ input[type="submit"][value] {
     По возможности избегайте встроенных стилей.
 */
 [style] {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 
 /*
     Вам следует избегать использования идентификаторов для CSS, делает ли это какой-либо стиль?
 */
 [id] {
-  outline: 5px solid yellow;
+  outline: 5px dashed var(--color-warning);
 }
 
 /*
     Списки определений должны содержать только элементы DT и DD
 */
 dl > * {
-  outline: 5px solid red;
+  outline: 5px solid var(--color-error);
 }
 dl > dt,
 dl > dd {
